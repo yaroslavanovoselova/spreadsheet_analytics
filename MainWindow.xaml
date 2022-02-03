@@ -1,0 +1,26 @@
+﻿<Window x:Class="Spreadsheet_Analysis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spreadsheet_Analysis"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="DataGrid" SelectionUnit="Cell" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" IsReadOnly="True" Margin="0,30,0,0" CanUserSortColumns="False"/>
+        <Menu x:Name="Menu"  Margin="0,0,0,0" VerticalAlignment="Top">
+            <MenuItem x:Name="OpenFileMenuItem" Header="Открыть файл" Click="OpenFile_Click" Height="25"/>
+            <MenuItem x:Name="BuildHistoMenuItem" Height="25" Header="Построить гистограмму"  Click="GetHistogram_Click"/>
+            <MenuItem x:Name="BuildPlot" Height="25" Header="Построить двумерный график"  Click="GetPlot_Click"/>
+            <MenuItem x:Name="ColumnInfoMenuItem" Height="25" Header="Характеристики столбца">
+                <MenuItem x:Name="GetAverageMenuItem" Click="GetAverage_Click" Height="25" Header="Найти среднее значение"/>
+                <MenuItem x:Name="GetMedianMenuItem" Click="GetMedian_Click" Height="25" Header="Найти медиану"/>
+                <MenuItem x:Name="GetDeviationMenuItem" Click="GetStandardDeviation_Click" Height="25" Header="Найти среднеквадратичное отклонение"/>
+                <MenuItem x:Name="GetDispersionMenuItem" Click="GetDispersion_Click" Height="25" Header="Найти дисперсию"/>
+            </MenuItem>
+            <Border BorderThickness="1" BorderBrush="Black"/>
+        </Menu>
+
+    </Grid>
+</Window>

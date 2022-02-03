@@ -1,0 +1,24 @@
+﻿<Window x:Name="ChartWindow" x:Class="Spreadsheet_Analysis.Chart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spreadsheet_Analysis"
+        xmlns:lvc ="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Chart" Height="450" Width="800">
+    <Grid>
+        <lvc:CartesianChart x:Name="Chart1" Series="{Binding SeriesCollection}"  Margin="5,35,5,3" Grid.ColumnSpan="4" DataClick="ChangeColor">
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title ="{Binding AxisXTitle}" Labels ="{Binding Labels}"/>
+            </lvc:CartesianChart.AxisX>
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="{Binding AxisYTitle}"/>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+        <xctk:IntegerUpDown Name="UpDownControl" Margin="305,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="80" CultureInfo="ru-RU" Visibility="Hidden" DefaultValue="1" Minimum="1" ValueChanged="UpDownControl_ValueChanged"/>
+        <Button x:Name="SaveButton" Content="Сохранить график" HorizontalAlignment="Left" Height="25" Margin="10,10,0,0" VerticalAlignment="Top" Width="150" Click="SaveButton_Click"/>
+        <Label x:Name="WidthLabel" Content="Ширина столбцов:" HorizontalAlignment="Left" Height="25" Margin="190,10,0,0" VerticalAlignment="Top" Width="115" Visibility="Hidden"/>
+    </Grid>
+</Window>
